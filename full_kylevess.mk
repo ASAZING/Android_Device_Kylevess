@@ -29,11 +29,11 @@ PRODUCT_COPY_FILES += \
 	device/samsung/kylevess/configs/media_codecs.xml:system/etc/media_codecs.xml 
 
 # Prebuilt kl keymaps
-PRODUCT_COPY_FILES += \
-	device/samsung/kylevess/keylayouts/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
-	device/samsung/kylevess/keylayouts/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
-	device/samsung/kylevess/keylayouts/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-	device/samsung/kylevess/keylayouts/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl
+#PRODUCT_COPY_FILES += \
+#	device/samsung/kylevess/keylayouts/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
+#	device/samsung/kylevess/keylayouts/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
+#	device/samsung/kylevess/keylayouts/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+#	device/samsung/kylevess/keylayouts/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl
 
 # Insecure ADBD
 # (ro.adb.secure=3)
@@ -70,14 +70,11 @@ PRODUCT_PACKAGES += \
 # Device-specific packages
 PRODUCT_PACKAGES += \
 	SamsungServiceMode \
-	Torch
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
-	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
-	frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 	frameworks/native/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
 	frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
@@ -108,8 +105,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=rmnet0 \
     ro.telephony.ril_class=SamsungBCMRIL \
     ro.zygote.disable_gl_preload=true \
-    persist.radio.multisim.config=dsds \
-	cm.updater.uri=http://updates.cm-ota.pp.ua \
+    persist.radio.multisim.config=none \
+#	cm.updater.uri=http://updates.cm-ota.pp.ua \
 	ro.telephony.call_ring.multiple=0 \
 	ro.telephony.call_ring=0
     
@@ -132,8 +129,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 	
 # Dalvik heap config
-include frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk
-include frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk
+include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise

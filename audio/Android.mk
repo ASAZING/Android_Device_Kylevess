@@ -1,4 +1,4 @@
-ifeq ($(TARGET_DEVICE),logands)
+ifeq ($(TARGET_DEVICE),kylevess)
 ifeq ($(TARGET_BOARD_PLATFORM),hawaii)
 
 LOCAL_PATH:= $(call my-dir)
